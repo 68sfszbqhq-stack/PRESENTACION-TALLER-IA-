@@ -1,0 +1,82 @@
+/* Estilos para el Brainstorming "Inteligente" (Word Cloud Style) */
+.brainstorm-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    height: 100%;
+    align-content: center;
+}
+
+.cloud-word {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    line-height: 1.2;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+.cloud-word.popular {
+    z-index: 10;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+    70% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.3s ease-in-out;
+}
+
+/* Colores brillantes estilo Mentimeter para fallback */
+:root {
+    --color-1: #e91e63;
+    --color-2: #9c27b0;
+    --color-3: #2196f3;
+    --color-4: #00bcd4;
+    --color-5: #4caf50;
+    --color-6: #ffc107;
+    --color-7: #ff5722;
+    --color-8: #795548;
+}
+
+/* Etiquetas de Autor para Lluvia de Ideas y Board */
+.author-tag {
+    display: block;
+    font-size: 0.6em;
+    font-weight: normal;
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin-top: 5px;
+    color: #555;
+    text-shadow: none;
+}
+
+/* Ajustes para el Toast más detallado */
+.participant-toast {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.participant-toast .toast-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación (Modo Offline)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Ajustes específicos para modo offline */
+        .offline-badge {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #f59e0b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+
+        .slide-content {
+            padding-top: 4rem;
+            /* Espacio para el header fijo */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offline-badge">⚠️ Modo Offline (Sin Interactividad)</div>
+
+    <div class="slide-container">
+        <header class="slide-header">
+            <div class="logo-text">Nueva Escuela Mexicana | Taller IA</div>
+            <div style="flex: 1; margin: 0 20px;">
+                <div class="progress-bar-container"
+                    style="background: #e0e0e0; height: 10px; border-radius: 5px; overflow: hidden;">
+                    <div id="progress-bar"
+                        style="height: 100%; background: var(--secondary-color); width: 0%; transition: width 0.3s;">
+                    </div>
+                </div>
+            </div>
+            <a href="index.html" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.5rem;">Salir</a>
+        </header>
+
+        <main id="slide-content" class="slide-content">
+            <!-- Dynamic Content Here -->
+        </main>
+
+        <footer class="slide-controls">
+            <button onclick="prevSlide()" class="btn btn-secondary">Anterior</button>
+            <span id="slide-indicator">Diapositiva 1</span>
+            <button onclick="nextSlide()" class="btn btn-primary">Siguiente</button>
+        </footer>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script>
+        // Lógica Simple para Modo Offline
+        let currentSlideIndex = 0;
+        const totalSlides = presentationData.length;
+
+        const slideContent = document.getElementById('slide-content');
+        const slideIndicator = document.getElementById('slide-indicator');
+        const progressBar = document.getElementById('progress-bar');
+
+        function renderSlide(index) {
+            const slide = presentationData[index];
+
+            // Actualizar indicadores
+            slideIndicator.textContent = `Diapositiva ${index + 1} / ${totalSlides}`;
+            progressBar.style.width = `${((index + 1) / totalSlides) * 100}%`;
+
+            // Renderizar contenido
+            let htmlContent = '';
+
+            if (slide.type === 'content') {
+                htmlContent = `
+                    <div class="slide-body fade-in">
+                        <h1>${slide.title}</h1>
+                        <div class="content-body">${slide.content}</div>
+                    </div>
+                `;
+            } else if (slide.type === 'poll') {
+                htmlContent = `
+                    <div class="slide-body fade-in">
+                        <h1>📊 Encuesta (Desactivada en Offline)</h1>
+                        <h2>${slide.question}</h2>
+                        <ul>
+                            ${slide.options.map(opt => `<li>${opt}</li>`).join('')}
+                        </ul>
+                        <p style="color: #666; font-style: italic; margin-top: 1rem;">
+                            En modo online, los alumnos votarían aquí en tiempo real.
+                        </p>
+                    </div>
+                `;
+            } else if (slide.type === 'brainstorm') {
+                htmlContent = `
+                    <div class="slide-body fade-in">
+                        <h1>💡 Lluvia de Ideas (Desactivada en Offline)</h1>
+                        <h2>${slide.question}</h2>
+                        <p style="color: #666; font-style: italic; margin-top: 1rem;">
+                            En modo online, las respuestas aparecerían aquí.
+                        </p>
+                    </div>
+                `;
+            }
+
+            slideContent.innerHTML = htmlContent;
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderSlide(currentSlideIndex);
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                renderSlide(currentSlideIndex);
+            }
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Iniciar
+        renderSlide(0);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista del Presentador</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cloud.css">
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Firebase Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Header eliminado como se solicitó -->
+
+        <main id="slide-content" class="slide-content">
+            <!-- Dynamic Content Here -->
+            <h1 id="question-text">Esperando participantes...</h1>
+            <div id="results-area" class="results-area">
+                <!-- Live Results -->
+            </div>
+        </main>
+
+        <footer class="slide-controls">
+            <button class="btn" onclick="prevSlide()">❮ Anterior</button>
+            <span id="slide-indicator">Diapositiva 1 / 10</span>
+            <button class="btn" onclick="nextSlide()">Siguiente ❯</button>
+            <button class="btn"
+                style="background-color: #dc3545; font-size: 0.9rem; padding: 0.5rem 1rem; margin-left: 1rem;"
+                onclick="fullSessionReset()">♻️ Reiniciar Todo</button>
+            <button class="btn"
+                style="background-color: #28a745; font-size: 0.9rem; padding: 0.5rem 1rem; margin-left: 1rem;"
+                onclick="exportReport()">📄 Exportar Evidencia</button>
+            <div class="admin-controls">
+                <button onclick="resetVotes()" class="btn btn-danger" style="background: #ef4444;">Reiniciar
+                    Votos</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/presentador.js"></script>
+</body>
+
+</html>

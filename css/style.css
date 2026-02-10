@@ -1,0 +1,382 @@
+:root {
+    --primary-color: #9D2449;
+    /* Guinda institucional */
+    --secondary-color: #B38E5D;
+    /* Dorado sutil */
+    --accent-color: #2e86c1;
+    /* Azul tecnológico */
+    --background-color: #f4f4f4;
+    --text-color: #333333;
+    --card-bg: #FFFFFF;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Global Styles & Layout */
+.container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Slide Container (Presenter) */
+.slide-container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--background-color);
+    overflow: hidden;
+    /* Evitar scroll global si es posible */
+}
+
+.slide-header {
+    background-color: var(--card-bg);
+    border-bottom: 4px solid var(--primary-color);
+    padding: 0.5rem 2rem;
+    /* Reduce header height slightly */
+    display: none;
+    /* Oculto por defecto, solo visible en slide 1 si queremos */
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    /* Header fijo */
+}
+
+/* MAXIMIZED CONTENT AREA */
+.slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centrar verticalmente */
+    align-items: center;
+    padding: 1rem;
+    /* Margen mínimo */
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slide-body {
+    background: var(--card-bg);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    /* Full Width & Height Logic */
+    width: 98%;
+    /* Ocupar casi todo el ancho */
+    max-width: none;
+    /* Quitar límite de ancho */
+    height: 95%;
+    /* Ocupar casi toda la altura disponible */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Contenido empieza arriba */
+    overflow-y: auto;
+    /* Scroll interno si es necesario */
+}
+
+/* TYPOGRAPHY FOR VISIBILITY (LARGE TEXT) */
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    border-left: 10px solid var(--secondary-color);
+    /* Borde más visible */
+    padding-left: 20px;
+    font-size: 3.5rem;
+    /* Título Gigante */
+    line-height: 1.1;
+}
+
+h2 {
+    color: var(--text-color);
+    font-weight: 600;
+    /* Más negrita */
+    font-size: 2.5rem;
+    /* Subtítulo Grande */
+    margin-bottom: 1.5rem;
+}
+
+/* List Items */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(157, 36, 73, 0.05);
+    margin-bottom: 1.5rem;
+    /* Más espacio entre items */
+    padding: 1.5rem;
+    /* Más relleno */
+    border-radius: 12px;
+    border-left: 8px solid var(--accent-color);
+    /* Borde más grueso */
+    line-height: 1.4;
+    font-size: 2rem;
+    /* Texto de lista MUY GRANDE */
+}
+
+li strong {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1.8rem;
+    /* Tabla grande */
+}
+
+th,
+td {
+    border: 2px solid #ddd;
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Intro Slide Specifics */
+.tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    /* Tag grande */
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* Override inline styles for visibility using !important or specific selectors */
+.slide-body p {
+    font-size: 1.8rem !important;
+}
+
+.slide-body div[style*="font-size: 0.9rem"] {
+    font-size: 1.4rem !important;
+    /* Hacer la 'Opinión' legible pero diferenciada */
+    background-color: #fce7f3 !important;
+    /* Color de fondo un poco más cálido */
+}
+
+/* Interactive Elements */
+.results-area {
+    width: 100%;
+    margin-top: 2rem;
+    min-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.vote-bar-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.slide-controls {
+    padding: 1rem 2rem;
+    background: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+}
+
+.slide-controls button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.slide-controls span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Mobile responsive (Participante) - Keep normal sizes */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    li {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Estilos Específicos para data.js refactorizado */
+.opinion-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #eef2ff;
+    /* Azul muy pálido */
+    border-left: 8px solid var(--secondary-color);
+    font-size: 1.6rem;
+    /* Aumentado para visibilidad */
+    font-style: italic;
+    color: #4b5563;
+}
+
+.intro-text {
+    font-size: 2rem;
+    color: #4b5563;
+    margin: 1rem 0;
+}
+
+.quote {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* Estilos para el Cuadro Colaborativo */
+.board-column h3 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.board-column .brainstorm-card {
+    min-width: 0;
+    margin: 8px 0;
+    font-size: 2.2rem;
+    /* Aumentado considerablemente para visibilidad */
+    padding: 15px;
+    font-weight: 500;
+}
+/* Estilos Móviles para ver el contenido */
+@media (max-width: 768px) {
+    .mobile-slide-content {
+        text-align: left;
+        font-size: 1rem;
+    }
+    
+    .mobile-slide-content h1, 
+    .mobile-slide-content h2 {
+        font-size: 1.4rem;
+        margin-top: 0.5rem;
+    }
+    
+    .mobile-slide-content ul {
+        padding-left: 20px;
+    }
+    
+    .mobile-slide-content li {
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .mobile-slide-content .opinion-box {
+        font-size: 0.95rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .mobile-slide-content .intro-text {
+        font-size: 1.1rem;
+    }
+    
+    .mobile-slide-content .quote {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+    }
+    
+    /* Ocultar elementos muy grandes en móvil si estorban */
+    .mobile-slide-content #qrcode-large {
+        display: none; 
+    }
+}
+
+/* Notificaciones Flotantes de Participación */
+#toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none; /* Dejar pasar clics */
+}
+
+.participant-toast {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    animation: slideInUp 0.3s ease-out, fadeOut 0.5s ease-in 3.5s forwards;
+    border-left: 5px solid var(--accent-color);
+    max-width: 300px;
+}
+
+.toast-icon {
+    font-size: 1.5rem;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateY(-20px); }
+}
