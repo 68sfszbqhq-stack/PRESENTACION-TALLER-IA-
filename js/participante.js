@@ -54,6 +54,22 @@ function joinSession() {
         joinedAt: firebase.database.ServerValue.TIMESTAMP
     });
 
+    // Generar QR para compartir
+    const shareContainer = document.getElementById('share-container');
+    const shareQr = document.getElementById('share-qr');
+    if (shareContainer && shareQr) {
+        shareContainer.style.display = 'block';
+        shareQr.innerHTML = '';
+        new QRCode(shareQr, {
+            text: window.location.href, // La URL actual ya tiene ?code=...
+            width: 100,
+            height: 100,
+            colorDark: "#333333",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.L
+        });
+    }
+
     listenToSession();
 }
 
