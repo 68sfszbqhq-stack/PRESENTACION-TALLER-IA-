@@ -1,9 +1,7 @@
 // Lógica del Participante
 
-// Obtener código de sesión de la URL
-const urlParams = new URLSearchParams(window.location.search);
-const sessionCodeFromUrl = urlParams.get('code');
-let sessionCode = sessionCodeFromUrl;
+const sessionCodeFromUrl = urlParams.get('session') || urlParams.get('code'); // Soportar ambos params
+let sessionCode = sessionCodeFromUrl || 'TALLER-IA'; // Default automático
 
 // Referencias DOM
 const loginScreen = document.getElementById('login-screen');
@@ -25,18 +23,7 @@ function joinSession() {
     const usernameInput = document.getElementById('username').value;
     if (!usernameInput) return alert('Por favor ingresa tu nombre');
 
-    // Intentar obtener código de varias fuentes:
-    // 1. URL (?code=...)
-    // 2. LocalStorage (si abres en el mismo navegador que el presentador)
-    if (!sessionCode) {
-        sessionCode = localStorage.getItem('sessionCode');
-    }
-
-    // Fallback de emergencia si aún no hay código (para pruebas rápidas)
-    if (!sessionCode) {
-        alert("No se encontró un código de sesión. Asegúrate de abrir primero la vista del Presentador.");
-        return;
-    }
+    // Código ya definido por defecto arriba, no hace falta validación estricta
 
     currentUser.name = usernameInput;
     currentUser.id = Date.now().toString(); // ID temporal simple

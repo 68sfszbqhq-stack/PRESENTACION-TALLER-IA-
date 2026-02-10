@@ -12,7 +12,7 @@ const qrContainer = document.getElementById('qrcode');
 // const accessCodeElement = document.getElementById('access-code'); // Eliminado del DOM
 
 // Generar código de sesión único (si no existe)
-let sessionCode = localStorage.getItem('sessionCode') || Math.random().toString(36).substring(2, 8).toUpperCase();
+let sessionCode = 'TALLER-IA'; // Código fijo para simplificar acceso
 localStorage.setItem('sessionCode', sessionCode); // Guardar para compartir
 // accessCodeElement ya no existe, pero seguimos usando el código internamente
 
