@@ -1,5 +1,7 @@
 // Lógica del Participante
 
+// Obtener código de sesión de la URL
+const urlParams = new URLSearchParams(window.location.search);
 const sessionCodeFromUrl = urlParams.get('session') || urlParams.get('code'); // Soportar ambos params
 let sessionCode = sessionCodeFromUrl || 'TALLER-IA'; // Default automático
 
