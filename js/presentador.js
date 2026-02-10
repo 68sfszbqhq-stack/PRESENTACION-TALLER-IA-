@@ -58,8 +58,12 @@ function renderSlide(index) {
         const qrLargeContainer = document.getElementById('qrcode-large');
         if (qrLargeContainer) {
             qrLargeContainer.innerHTML = ''; // Limpiar previo
+            // URL DE PRODUCCIÓN
+            const prodUrl = 'https://68sfszbqhq-stack.github.io/PRESENTACION-TALLER-IA-/participante.html';
+            const fullUrl = `${prodUrl}?session=${sessionCode}`;
+
             new QRCode(qrLargeContainer, {
-                text: qrUrl,
+                text: fullUrl,
                 width: 250,
                 height: 250,
                 colorDark: "#9D2449", // Guinda institucional
