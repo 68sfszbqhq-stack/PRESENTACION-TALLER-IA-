@@ -14,11 +14,22 @@
         <h1>Bienvenido a la Presentación Interactiva</h1>
         <p>Selecciona tu rol para continuar:</p>
 
-        <div class="role-selection">
-            <a href="#" onclick="accessTeacherWorkshop(event)" class="btn btn-primary">
+        <div class="role-selection" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Opción 1: Taller IA -->
+            <a href="#" onclick="accessPresentation(event, 'presentador.html')" class="btn btn-primary"
+                style="background-color: #9D2449;">
                 <span class="icon">🎓</span>
-                Taller Docentes
+                Taller IA Docente
             </a>
+
+            <!-- Opción 2: Cultura Digital -->
+            <a href="#" onclick="accessPresentation(event, 'presentador-c2.html')" class="btn btn-primary"
+                style="background-color: #2e86c1;">
+                <span class="icon">💻</span>
+                Cultura Digital II
+            </a>
+
+            <!-- Opción 3: Participante -->
             <a href="participante.html" class="btn btn-secondary">
                 <span class="icon">📱</span>
                 Soy un Participante
@@ -27,11 +38,11 @@
 
 
         <script>
-            function accessTeacherWorkshop(event) {
+            function accessPresentation(event, url) {
                 event.preventDefault();
                 const password = prompt("Por favor, ingrese la contraseña de acceso:");
                 if (password === "2019") {
-                    window.location.href = "taller.html";
+                    window.location.href = url;
                 } else if (password !== null) {
                     alert("Contraseña incorrecta.");
                 }
