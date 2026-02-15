@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from 'lucide-react';
-import { SLIDES } from './constants';
-import { SlideRenderer } from './components/SlideRenderer';
+import { SLIDES } from './constants.tsx';
+import { SlideRenderer } from './components/SlideRenderer.tsx';
 
 const App: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -45,7 +45,7 @@ const App: React.FC = () => {
 
   return (
     <div className="w-full h-screen bg-brand-dark overflow-hidden flex flex-col relative font-sans text-slate-100">
-      
+
       {/* Main Stage */}
       <div className="flex-1 relative overflow-hidden">
         <AnimatePresence mode="wait">
@@ -55,7 +55,7 @@ const App: React.FC = () => {
 
       {/* Controls Overlay (Always Visible on Hover or Fixed at bottom) */}
       <div className="absolute bottom-0 left-0 w-full z-50 p-6 pointer-events-none flex justify-between items-end bg-gradient-to-t from-black/80 to-transparent h-32">
-        
+
         {/* Slide Counter */}
         <div className="text-gray-400 font-mono text-sm pointer-events-auto">
           {currentSlide + 1} / {SLIDES.length}
@@ -63,15 +63,15 @@ const App: React.FC = () => {
 
         {/* Navigation Controls */}
         <div className="flex items-center space-x-4 pointer-events-auto">
-          <button 
+          <button
             onClick={prevSlide}
             disabled={currentSlide === 0}
             className="p-3 rounded-full bg-slate-800/80 hover:bg-brand-primary text-white transition-colors disabled:opacity-30 backdrop-blur-sm"
           >
             <ChevronLeft size={24} />
           </button>
-          
-          <button 
+
+          <button
             onClick={nextSlide}
             disabled={currentSlide === SLIDES.length - 1}
             className="p-3 rounded-full bg-slate-800/80 hover:bg-brand-primary text-white transition-colors disabled:opacity-30 backdrop-blur-sm"
@@ -79,7 +79,7 @@ const App: React.FC = () => {
             <ChevronRight size={24} />
           </button>
 
-           <button 
+          <button
             onClick={toggleFullscreen}
             className="p-3 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white transition-colors ml-4 backdrop-blur-sm"
           >
@@ -90,7 +90,7 @@ const App: React.FC = () => {
 
       {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 h-1 bg-slate-800 w-full z-50">
-        <div 
+        <div
           className="h-full bg-brand-primary transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         />

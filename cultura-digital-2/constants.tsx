@@ -1,4 +1,4 @@
-import { SlideData, SlideType } from './types';
+import { SlideData, SlideType } from './types.ts';
 
 export const SLIDES: SlideData[] = [
   {
