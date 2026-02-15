@@ -94,7 +94,7 @@ export const SLIDES: SlideData[] = [
       "Requisito: Uso crítico de al menos 3 herramientas.",
       "Meta: Fomentar la autorregulación."
     ],
-    image: "https://picsum.photos/id/106/800/1200" // Writing/grading
+    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop" // Checklist/Meeting
   },
   {
     id: 9,
