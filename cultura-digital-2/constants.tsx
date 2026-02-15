@@ -39,10 +39,100 @@ export const SLIDES: SlideData[] = [
     subtitle: "Más de 20 herramientas para dominar",
     content: "No son solo apps, son superpoderes de productividad.",
     cards: [
-      { title: "Gestión", description: "Trello, Miro, Notion, Asana", icon: "Layout" },
-      { title: "Creación", description: "Google Docs, Slides, Canva", icon: "Edit3" },
-      { title: "Comunicación", description: "Slack, Teams, Google Chat", icon: "MessageSquare" },
-      { title: "Interacción", description: "Kahoot, Padlet, Quizlet", icon: "Zap" }
+      {
+        title: "Gestión",
+        description: "Organización y seguimiento de tareas.",
+        icon: "Layout",
+        tools: [
+          {
+            name: "Trello",
+            explanation: "Gestión de proyectos visual basada en tableros Kanban. Ideal para visualizar el flujo de trabajo.",
+            benefits: ["Fácil de usar", "Visual e intuitivo", "Integraciones poderosas"],
+            url: "https://trello.com"
+          },
+          {
+            name: "Miro",
+            explanation: "Pizarra blanca infinita colaborativa para brainstorming y planificación visual.",
+            benefits: ["Colaboración en tiempo real", "Plantillas versátiles", "Libertad creativa"],
+            url: "https://miro.com"
+          },
+          {
+            name: "Notion",
+            explanation: "Espacio de trabajo todo en uno para notas, bases de datos y gestión de proyectos.",
+            benefits: ["Altamente personalizable", "Bases de datos relacionales", "Documentación centralizada"],
+            url: "https://notion.so"
+          },
+          {
+            name: "Asana",
+            explanation: "Plataforma para gestionar el trabajo en equipo, proyectos y tareas.",
+            benefits: ["Vistas de cronograma", "Gestión de carga de trabajo", "Automatización de procesos"],
+            url: "https://asana.com"
+          }
+        ]
+      },
+      {
+        title: "Creación",
+        description: "Herramientas para producir contenido.",
+        icon: "Edit3",
+        tools: [
+          {
+            name: "Google Docs",
+            explanation: "Procesador de texto colaborativo en la nube.",
+            benefits: ["Edición simultánea", "Historial de versiones", "Comentarios en tiempo real"],
+            url: "https://docs.google.com"
+          },
+          {
+            name: "Canva",
+            explanation: "Herramienta de diseño gráfico simplificado para no diseñadores.",
+            benefits: ["Miles de plantillas", "Interfaz arrastrar y soltar", "Recursos gráficos gratuitos"],
+            url: "https://canva.com"
+          },
+          {
+            name: "Slides",
+            explanation: "Creación de presentaciones efectivas y colaborativas.",
+            benefits: ["Accesible desde cualquier lugar", "Fácil de compartir", "Modo presentador"],
+            url: "https://google.com/slides"
+          }
+        ]
+      },
+      {
+        title: "Comunicación",
+        description: "Mantener al equipo conectado.",
+        icon: "MessageSquare",
+        tools: [
+          {
+            name: "Slack",
+            explanation: "Plataforma de mensajería basada en canales para equipos.",
+            benefits: ["Organización por temas", "Búsqueda potente", "Menos correos electrónicos"],
+            url: "https://slack.com"
+          },
+          {
+            name: "Microsoft Teams",
+            explanation: "Hub de trabajo en equipo que combina chat, videollamadas y archivos.",
+            benefits: ["Integración con Office 365", "Videoconferencias robustas", "Seguridad empresarial"],
+            url: "https://teams.microsoft.com"
+          }
+        ]
+      },
+      {
+        title: "Interacción",
+        description: "Gamificación y participación.",
+        icon: "Zap",
+        tools: [
+          {
+            name: "Kahoot!",
+            explanation: "Plataforma de aprendizaje basada en juegos y trivias.",
+            benefits: ["Aumenta el compromiso", "Evaluación divertida", "Feedback inmediato"],
+            url: "https://kahoot.com"
+          },
+          {
+            name: "Padlet",
+            explanation: "Muro digital colaborativo para compartir ideas y recursos.",
+            benefits: ["Fácil de publicar", "Soporta multimedia", "Diseño atractivo"],
+            url: "https://padlet.com"
+          }
+        ]
+      }
     ]
   },
   {

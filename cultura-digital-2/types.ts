@@ -9,6 +9,13 @@ export enum SlideType {
   CALL_TO_ACTION = 'CALL_TO_ACTION'
 }
 
+export interface Tool {
+  name: string;
+  explanation: string;
+  benefits: string[];
+  url: string;
+}
+
 export interface SlideData {
   id: number;
   type: SlideType;
@@ -19,5 +26,10 @@ export interface SlideData {
   image?: string;
   highlightText?: string; // For stats or quotes
   footer?: string;
-  cards?: { title: string; description: string; icon: string }[];
+  cards?: {
+    title: string;
+    description: string;
+    icon: string;
+    tools?: Tool[];
+  }[];
 }
