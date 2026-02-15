@@ -12,7 +12,8 @@ const qrContainer = document.getElementById('qrcode');
 // const accessCodeElement = document.getElementById('access-code'); // Eliminado del DOM
 
 // Generar código de sesión único (si no existe)
-let sessionCode = 'TALLER-IA'; // Código fijo para simplificar acceso
+// Generar código de sesión (Soportar configuración externa)
+let sessionCode = (typeof window.CUSTOM_SESSION_CODE !== 'undefined') ? window.CUSTOM_SESSION_CODE : 'TALLER-IA';
 localStorage.setItem('sessionCode', sessionCode); // Guardar para compartir
 // accessCodeElement ya no existe, pero seguimos usando el código internamente
 
@@ -59,7 +60,10 @@ function renderSlide(index) {
         if (qrLargeContainer) {
             qrLargeContainer.innerHTML = ''; // Limpiar previo
             // URL DE PRODUCCIÓN
-            const prodUrl = 'https://68sfszbqhq-stack.github.io/PRESENTACION-TALLER-IA-/participante.html';
+            // URL DE PRODUCCIÓN (Configurable)
+            const prodUrl = (typeof window.CUSTOM_PARTICIPANT_URL !== 'undefined')
+                ? window.CUSTOM_PARTICIPANT_URL
+                : 'https://68sfszbqhq-stack.github.io/PRESENTACION-TALLER-IA-/participante.html';
             const fullUrl = `${prodUrl}?session=${sessionCode}`;
 
             new QRCode(qrLargeContainer, {

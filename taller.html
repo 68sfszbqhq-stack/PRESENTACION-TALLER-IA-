@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Docente - Clases</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .class-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .class-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 6px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .class-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .class-desc {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #666;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container landing-container" style="max-width: 800px;">
+        <h1>Taller Docente</h1>
+        <p>Selecciona una clase para iniciar la presentación:</p>
+
+        <div class="class-list">
+            <!-- Clase 1: La presentación actual -->
+            <a href="presentador.html" class="class-card">
+                <div class="class-title">Clase 1: Uso de la IA en mi Labor Docente</div>
+                <div class="class-desc">Estrategias Éticas y Humanistas para el Aula. Análisis conceptual y aplicación
+                    práctica.</div>
+            </a>
+
+            <!-- Clase 2: Cultura Digital II -->
+            <a href="presentador-c2.html" class="class-card">
+                <div class="class-title">Clase 2: Cultura Digital II</div>
+                <div class="class-desc">Colaboración Digital: Resolviendo el Futuro Hoy. Estrategias y herramientas
+                    colaborativas.</div>
+            </a>
+        </div>
+
+        <a href="index.html" class="back-link">← Volver al Inicio</a>
+    </div>
+</body>
+
+</html>

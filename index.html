@@ -15,15 +15,28 @@
         <p>Selecciona tu rol para continuar:</p>
 
         <div class="role-selection">
-            <a href="presentador.html" class="btn btn-primary">
-                <span class="icon">🎤</span>
-                Soy el Presentador
+            <a href="#" onclick="accessTeacherWorkshop(event)" class="btn btn-primary">
+                <span class="icon">🎓</span>
+                Taller Docentes
             </a>
             <a href="participante.html" class="btn btn-secondary">
                 <span class="icon">📱</span>
                 Soy un Participante
             </a>
         </div>
+
+
+        <script>
+            function accessTeacherWorkshop(event) {
+                event.preventDefault();
+                const password = prompt("Por favor, ingrese la contraseña de acceso:");
+                if (password === "2019") {
+                    window.location.href = "taller.html";
+                } else if (password !== null) {
+                    alert("Contraseña incorrecta.");
+                }
+            }
+        </script>
 
         <div style="margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 1rem;">
             <p style="font-size: 0.9rem; color: #666;">¿Problemas técnicos?</p>

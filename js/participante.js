@@ -3,7 +3,7 @@
 // Obtener código de sesión de la URL
 const urlParams = new URLSearchParams(window.location.search);
 const sessionCodeFromUrl = urlParams.get('session') || urlParams.get('code'); // Soportar ambos params
-let sessionCode = sessionCodeFromUrl || 'TALLER-IA'; // Default automático
+let sessionCode = sessionCodeFromUrl || (window.DEFAULT_SESSION_CODE || 'TALLER-IA'); // Default configurable
 
 // Referencias DOM
 const loginScreen = document.getElementById('login-screen');
